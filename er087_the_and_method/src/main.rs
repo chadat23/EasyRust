@@ -1,25 +1,18 @@
-// https://youtu.be/uTWRaYfSvvM?list=PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk
+// https://youtu.be/jXy4-AteA-g?list=PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk
 
 fn main() {
-    let mut first_vec = vec![];
-    for _ in 0..5 {
-        let mut second_vec = vec![];
-        for _ in 0..5 {
-            let mut third_vec = vec![];
-            third_vec.push(8);
-            third_vec.push(9);
-            third_vec.push(10);
-            third_vec.push(11);
-            third_vec.push(12);
-            second_vec.push(third_vec);
-        }
-        first_vec.push(second_vec);
+    let one = true;
+    let two = false;
+    let three = true;
+    let four = true;
+    println!("{}", one && three);
+    println!("{}", one && two && three && four);
+
+    let first_try = vec![Some("success!"), None, Some("success!"), Some("success!"), None];
+    let second_try = vec![None, Some("success!"), Some("success!"), Some("success!"), Some("success!")];
+    let third_try = vec![Some("success!"), Some("success!"), Some("success!"), Some("success!"), None];
+    for i in 0..first_try.len() {
+        println!("{:?}", first_try[i].and(second_try[i]).and(third_try[i]))
     }
-    println!("{:?}", first_vec[0][0][2]);
-    println!("{:?}", first_vec.get(2)
-        .and_then(|v| v.get(2))
-        .and_then(|v| v.get(4)));
-    println!("{:?}", first_vec.get(2)
-        .and_then(|v| v.get(12))
-        .and_then(|v| v.get(4)));
+
 }
