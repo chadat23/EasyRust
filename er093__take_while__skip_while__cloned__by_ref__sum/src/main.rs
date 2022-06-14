@@ -1,13 +1,23 @@
-// https://youtu.be/oCLy_E64JTs?list=PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk
+// https://youtu.be/L6rMIVRxwDc?list=PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk
 
 fn main() {
-    let some_number = vec![9, 6, 9, 10, 11];
-    println!("{}", some_number.iter().fold(0, |total_so_far, next_number| total_so_far + next_number));
+    let my_vec = (0..10)
+        .skip(2)
+        .take(5)
+        .collect::<Vec<_>>();
+    println!("{:?}", my_vec);
 
-    let a_string = "I don't have any dashes in me.";
-    println!("{}", a_string.chars().fold("-".to_string(), |mut string_so_far, next_char| {
-        string_so_far.push(next_char);
-        string_so_far.push('-');
-        string_so_far
-    }));
+    let my_vec = (0..10)
+        .skip_while(|&x| x < 4)
+        .take_while(|&x| x < 8)
+        .collect::<Vec<_>>();
+    println!("{:?}", my_vec);
+
+    let my_vec = [1, 2, 3]
+        .iter()
+        .cloned()
+        .collect::<Vec<_>>();
+    println!("{:?}", my_vec);
+
+    // watch the video for by_ref and sum
 }
